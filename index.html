@@ -1,0 +1,55 @@
+<?php include("../include/bdd.php"); ?>
+<!doctype html>
+<html lang="fr" ng-app="formApp">
+	<head>
+  		<meta charset="utf-8">
+  		<title>
+			Admin 
+		</title>
+		<meta name="robots" content="noindex,nofollow">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/admin.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+		<script src="controller/main.js"></script>
+		
+	</head>
+	<body>
+		<header class="navbar" role="banner">
+			<div class="container">
+				<nav class="navbar navbar-default" role="navigation">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html" alt="principal">Admin</a></li>
+							<li class="dropdown ">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							      Prédictions <span class="caret"></span>
+							    </a>
+								<ul class="dropdown-menu">
+									<li><a href="/see_last" alt="voir">Voir</a></li>
+									<li><a href="/add_info" alt="ajouter">Ajouter</a></li>
+									<li><a href="/del_info" alt="supprimer">Supprimer</a></li>
+									<li><a href="/upd_info" alt="modifier">Modifier</a></li>
+								</ul>
+							</li>
+							<li class="dropdown ">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+									<span class="glyphicon glyphicon-signal"></span> &nbsp;Statistiques
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="/statistiques_textes">Par texte</a></li>
+									<li><a href="/statistiques_details">Details</a></li>
+								</ul>
+							</li>			
+						</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div ng-view></div>
+		
+	</body>
+</html>

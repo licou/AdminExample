@@ -1,0 +1,27 @@
+<div class="container">
+	<h1>Statistiques</h1>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Textes</div>
+	  <div class="panel-body">
+	    <p>% lecture des différents textes</p>
+	  </div>
+
+	  <!-- Table -->
+	  <table class="table table-striped">
+	    <tr><th>Texte</th><th>Nb lu</th><th>% lecture total</th><th>Nb visiteur uniques</th><th>% texte lu plus de 2 fois par la même personne</th></tr>
+	    <tr ng-repeat="texte in textes | orderBy:'-nb_visiteur_unique'">
+	    	<td>{{texte.id}}</td>
+	    	<td>{{texte.nb_read}}</td>
+	    	<td>{{texte.pct_global}} %</td>
+	    	<td>{{texte.nb_visiteur_unique}}</td>
+	    	<td>{{texte.pct_visiteur}} %</td>
+	    </tr>
+	  </table>
+	</div>
+
+	
+	
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+	<h1>Modifier une prédiction</h1>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+	<div id="messages" ng-show="message">{{ message }}</div>	
+	<form ng-submit="processViewInfo()" class="form-inline" >
+		<div id="id-group" class="form-group" ng-class="{ 'has-error' : errorId }">
+			<div class="row">
+			  <div class="col-xs-4">
+			   <label for="byId"> Identifiant info : </label>
+			  </div>
+			  <div class="col-xs-2">
+			    <input name="byId" type="text" ng-model="formData.id" class="form-control" placeholder="id" required />
+			  </div>
+			  <div class="col-xs-4">
+			    <button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-eye-open"></span>&nbsp; Voir la prédiction!
+				</button>
+			  </div>
+			</div>
+			<span class="help-block" ng-show="errorId">{{ errorId }}</span>	  
+		</div>
+	</form><br/>
+	<div ng-show="viewInfo">
+		<button class="btn btn-default" id="addBreak">
+			<span class="glyphicon glyphicon-plus"></span> Ajouter un saut de ligne pour pub
+		</button>
+		<form ng-submit="processUpdForm()" class="css-form" >		
+			<div id="info-group" class="form-group" ng-class="{ 'has-error' : errorInfo }">
+				<textarea id="infoText" class="form-control" rows="3" name="info" ng-model="formData.info">{{formData.info}}</textarea>
+				<br/>
+				<span class="help-block" ng-show="errorInfo">{{ errorInfo }}</span><br/>
+				<button type="submit" class="btn btn-success btn-lg">
+					<span class="glyphicon glyphicon-flash"></span> Modifier la prédiction!
+				</button>
+			</div>
+			
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#addBreak").click(function(){
+			var caretPos = document.getElementById("infoText").selectionStart;
+			var textAreaTxt = $("#infoText").val();
+			var txtToAdd = "<br/><break/>";
+			$("#infoText").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+			$("#infoText").trigger('input');
+		})
+	});
+</script>

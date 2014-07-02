@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Panneau d'administration</h1>
+	<div ng-controller="StatsDetailController">
+		<div ng-show="alert">
+			<h2>Attention !!</h2>
+			<ul>
+				<li ng-repeat="detail in details | filter: {mustalert:true} | orderBy:predicate" ng-class="{danger:detail.danger,warning:detail.warning}">
+					<strong>{{detail.pct_visiteur}} %</strong> de visiteurs ont lu <strong>{{detail.pct_texte}} %</strong> des textes.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div>
+		<p>A ce jour il y a :</p>
+		<ul>
+			<li><strong>{{ nb_info }}</strong> textes dans la base </li>
+			<li><strong>{{nb_cookie}}</strong> personnes avec un cookie</li>
+			<li><strong>{{list_history.nb_texte_lu}}</strong> prédictions différentes soit (<strong>{{pct_texte_lu}}%</strong> des prédictions de la base)</li>
+		</ul>
+		<p>Aujourd'hui :</p>
+		<ul>
+			<li><strong>{{ list_history.nb_today_tirage }}</strong> tirages effectués par <strong>{{list_history.nb_today_visiteur}}</strong> visiteurs différents </li>
+		</ul>
+		<p>En moyenne :</p>
+		<ul>
+			<li>1 visiteur tire <strong>{{ list_history.nb_avg_tirage_visiteur }}</strong> fois</li>
+		</ul>
+	</div>
+	
+</div>

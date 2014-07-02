@@ -1,0 +1,22 @@
+<div class="container">
+	<h1>Statistiques</h1>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">X% des textes ont été lus par X% des utilisateurs</div>
+	  <div class="panel-body">
+	    <p>% lecture des différents textes</p>
+	  </div>
+
+	  <!-- Table -->
+	  <table class="table table-hover">
+	    <tr><th>pct de textes lus</th><th>pct d'utilisateurs</th><th>expliquation</th></tr>
+	    <tr ng-repeat="detail in details | orderBy:predicate" ng-class="{danger:detail.danger,warning:detail.warning}">
+	    	<td>{{detail.pct_texte}} %</td>
+	    	<td>{{detail.pct_visiteur}} %</td>
+	    	<td>{{detail.pct_texte}} % des textes ont été lus par {{detail.pct_visiteur}} % des visiteurs </td>
+	    </tr>
+	  </table>
+	</div>
+</div>

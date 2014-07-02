@@ -1,0 +1,33 @@
+<div class="container">
+	<h1>Ajouter des prédictions</h1>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+	<div id="messages" ng-show="message">{{ message }}</div>
+	<button class="btn btn-default" id="addBreak">
+		<span class="glyphicon glyphicon-plus"></span> Ajouter un saut de ligne pour pub
+	</button>
+	
+	<form ng-submit="processAddForm()" class="css-form">
+		<div id="info-group" class="form-group" ng-class="{ 'has-error' : errorInfo }">
+
+			<textarea id="infoText" class="form-control" rows="3" name="info" ng-model="formData.info" ></textarea>
+			
+			<span class="help-block" ng-show="errorInfo">{{ errorInfo }}</span><br/>
+			<button type="submit" class="btn btn-success btn-lg">
+				<span class="glyphicon glyphicon-flash"></span> Ajouter la prédiction!
+			</button>
+		</div>
+		
+	</form>
+	
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#addBreak").click(function(){
+			var caretPos = document.getElementById("infoText").selectionStart;
+			var textAreaTxt = $("#infoText").val();
+			var txtToAdd = "<br/><break/>";
+			$("#infoText").val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+			$("#infoText").trigger('input');
+		})
+	});
+</script>

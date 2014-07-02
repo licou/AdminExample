@@ -1,0 +1,24 @@
+<div class="container">
+	<h1>Supprimer des prédictions</h1>
+	<!-- SHOW ERROR/SUCCESS MESSAGES -->
+	<div id="messages" ng-show="message">{{ message }}</div>
+	<p> A ce jour il y a <strong>{{ nb_info }}</strong> infos dans la base </p>
+	<form ng-submit="processDelForm()" class="form-inline">
+		<div id="id-group" class="form-group" ng-class="{ 'has-error' : errorId }">
+			<div class="row">
+			  <div class="col-xs-4">
+			   <label for="byId"> Suppression par Identifiant : </label>
+			  </div>
+			  <div class="col-xs-2">
+			    <input name="byId" type="text" ng-model="formData.id" class="form-control" placeholder="id" required />
+			  </div>
+			  <div class="col-xs-4">
+			    <button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-ban-circle"></span> Supprimer la prédiction!
+				</button>
+			  </div>
+			</div>
+			<span class="help-block" ng-show="errorId">{{ errorId }}</span>	  
+		</div>
+	</form>
+</div>
